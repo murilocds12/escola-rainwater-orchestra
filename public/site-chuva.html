@@ -509,9 +509,7 @@ $('menuToggle').onclick = () => { const o = $('top').classList.toggle('open'); $
 document.querySelectorAll('.menu a').forEach(a=>a.addEventListener('click',()=>{$('top').classList.remove('open');$('menuToggle').setAttribute('aria-expanded',false);}));
 
 const links = [...document.querySelectorAll('.menu a')];
-new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ links.forEach(l=>{const on=l.hash==='#'+e.target.id; l.classList.toggle('active',on); on?l.setAttribute('aria-current','true'):l.removeAttribute('aria-current');}); } }),{rootMargin:'-45% 0px -50% 0px'})
-  .observe && document.querySelectorAll('main section').forEach(s=>scrollSpy.observe(s));
-var scrollSpy; // (definido abaixo para clareza)
+let scrollSpy;
 scrollSpy = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ links.forEach(l=>{const on=l.hash==='#'+e.target.id; l.classList.toggle('active',on); on?l.setAttribute('aria-current','true'):l.removeAttribute('aria-current');}); } }),{rootMargin:'-45% 0px -50% 0px'});
 document.querySelectorAll('main section').forEach(s=>scrollSpy.observe(s));
 const rev = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rev.unobserve(e.target);}}),{threshold:.15});
