@@ -95,6 +95,8 @@ header.open .menu{display:flex;flex-direction:column;position:absolute;top:64px;
    ========================================================= */
 #painel{background:var(--surface-2)}
 .dash{display:grid;gap:18px}
+.dash>*,.lower>*,.grid>*{min-width:0}
+body{overflow-x:hidden}
 @media(min-width:1024px){.dash{grid-template-columns:1.5fr 1fr}}
 .scene-card{padding:12px}
 .scene-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding:8px 10px 12px}
@@ -106,7 +108,7 @@ svg#scene{width:100%;height:auto;border-radius:14px;background:linear-gradient(#
 .kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 .kpi{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px}
 .kpi small{color:var(--muted);font-size:.75rem;display:block}
-.kpi strong{font-size:1.35rem;display:flex;align-items:center;gap:8px}
+.kpi strong{font-size:clamp(.95rem,4vw,1.35rem);display:flex;align-items:center;gap:8px}
 .bar{height:8px;border-radius:99px;background:var(--surface-2);margin-top:8px;overflow:hidden}
 .bar i{display:block;height:100%;background:var(--agua);transition:width .3s}
 .bar.green i{background:var(--verde)}
