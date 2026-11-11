@@ -34,9 +34,9 @@ a{color:var(--agua)}
 .skip{position:absolute;left:-999px;top:8px;background:var(--agua);color:#fff;padding:8px 14px;border-radius:8px;z-index:100}
 .skip:focus{left:8px}
 .container{width:min(1180px,100% - 32px);margin-inline:auto}
-section{padding:72px 0}
+section{padding:52px 0}
 h1,h2,h3{line-height:1.2}
-h2{font-size:clamp(1.6rem,4vw,2.3rem);margin-bottom:8px}
+h2{font-size:clamp(1.4rem,3.2vw,1.9rem);margin-bottom:8px}
 .eyebrow{display:inline-block;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--verde);margin-bottom:6px}
 .lead{color:var(--muted);max-width:700px;margin-bottom:32px}
 
@@ -76,10 +76,10 @@ header.open .menu{display:flex;flex-direction:column;position:absolute;top:64px;
 /* =========================================================
    4. INÍCIO
    ========================================================= */
-#inicio{padding-top:110px;background:radial-gradient(circle at 80% 0%,color-mix(in srgb,var(--agua) 20%,transparent),transparent 55%)}
-.hero{display:grid;gap:32px;align-items:center}
+#inicio{padding-top:96px;background:radial-gradient(circle at 80% 0%,color-mix(in srgb,var(--agua) 20%,transparent),transparent 55%)}
+.hero{display:grid;gap:28px;align-items:center}
 @media(min-width:960px){.hero{grid-template-columns:1.1fr 1fr}}
-.hero h1{font-size:clamp(1.9rem,5.5vw,3.2rem);font-weight:800}
+.hero h1{font-size:clamp(1.6rem,3.8vw,2.4rem);font-weight:800}
 .hero h1 span{background:linear-gradient(90deg,var(--agua),var(--verde));-webkit-background-clip:text;background-clip:text;color:transparent}
 .slogan{font-size:1.1rem;font-weight:600;color:var(--verde);margin:12px 0 18px}
 .video-box{aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;background:linear-gradient(135deg,var(--escuro),var(--agua));display:grid;place-items:center;color:#fff;box-shadow:var(--shadow);position:relative}
@@ -89,6 +89,9 @@ header.open .menu{display:flex;flex-direction:column;position:absolute;top:64px;
 .ps{margin-top:24px}
 .ps .card h3{font-size:1rem;margin-bottom:4px}
 .ps .card p{color:var(--muted);font-size:.9rem}
+.stats{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:24px;padding-top:18px;border-top:1px solid var(--border)}
+.stats div{display:flex;align-items:center;gap:8px;font-size:.85rem;font-weight:600;color:var(--muted)}
+.stats b{color:var(--verde)}
 
 /* =========================================================
    5. PAINEL
@@ -159,8 +162,19 @@ ol.steps li{margin-bottom:8px}
 .lightbox img{max-height:80vh;border-radius:12px}
 .lightbox .close,.lightbox .nav-l,.lightbox .nav-r{position:absolute;background:rgba(255,255,255,.15);color:#fff;border:0;width:44px;height:44px;border-radius:50%;font-size:1.3rem;cursor:pointer}
 .lightbox .close{top:16px;right:16px}.lightbox .nav-l{left:12px}.lightbox .nav-r{right:12px}
-footer{background:var(--escuro);color:#DCE8FF;padding:36px 0;text-align:center}
-footer .brand{color:#fff;justify-content:center;margin-bottom:8px}
+footer{background:var(--escuro);color:#DCE8FF;padding:44px 0 28px}
+footer .brand{color:#fff;margin-bottom:8px}
+.foot-grid{display:grid;gap:28px}
+@media(min-width:768px){.foot-grid{grid-template-columns:1.4fr 1fr 1fr}}
+footer h4{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:#8FB4E8;margin-bottom:10px}
+footer p,footer a{font-size:.88rem;color:#B9CBE8}
+footer ul{list-style:none}
+footer li{margin-bottom:6px}
+footer a{text-decoration:none}
+footer a:hover{color:#fff;text-decoration:underline}
+.foot-bottom{margin-top:28px;padding-top:16px;border-top:1px solid rgba(255,255,255,.15);font-size:.8rem;color:#8FB4E8;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.nav-cta{display:none;padding:8px 16px;font-size:.85rem}
+@media(min-width:960px){.nav-cta{display:inline-flex}}
 
 /* Reveal ao rolar */
 .reveal{opacity:0;transform:translateY(20px);transition:.6s}
@@ -190,6 +204,7 @@ footer .brand{color:#fff;justify-content:center;margin-bottom:8px}
       <li><a href="#equipe">Equipe</a></li>
     </ul>
     <div class="nav-actions">
+      <a href="#painel" class="btn btn-primary nav-cta">Painel ao vivo</a>
       <button class="icon-btn" id="themeBtn" aria-label="Alternar modo claro/escuro">🌙</button>
       <button class="icon-btn" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">☰</button>
     </div>
@@ -207,6 +222,12 @@ footer .brand{color:#fff;justify-content:center;margin-bottom:8px}
         <p class="slogan">“Água da chuva hoje, um futuro melhor amanhã!”</p>
         <p class="lead" style="margin-bottom:22px">Uma maquete que capta a chuva, mede o nível com sensor e usa Arduino + energia solar para bombear a água automaticamente até a caixa-d'água.</p>
         <a href="#painel" class="btn btn-primary">▶ Ver o painel ao vivo</a>
+        <div class="stats">
+          <div><b>✔</b> Automação com Arduino</div>
+          <div><b>✔</b> Energia 100% solar</div>
+          <div><b>✔</b> Sensor de nível em tempo real</div>
+          <div><b>✔</b> Baixo custo e replicável</div>
+        </div>
       </div>
       <!-- Troque o placeholder por: <video src="video.mp4" controls poster="capa.jpg"></video> -->
       <div class="video-box" role="img" aria-label="Espaço para o vídeo do projeto">
@@ -450,9 +471,36 @@ void loop() {
 <!-- ================= RODAPÉ ================= -->
 <footer>
   <div class="container">
-    <!-- Troque pelo logo real: <img src="logo-adelia.png" alt="Logo da Escola Técnica Adélia"> -->
-    <div class="brand"><span class="logo" aria-hidden="true">ETA</span>Escola Técnica Adélia</div>
-    <p>Projeto Integrador 2026 – 2º semestre</p>
+    <div class="foot-grid">
+      <div>
+        <!-- Troque pelo logo real: <img src="logo-adelia.png" alt="Logo da Escola Técnica Adélia"> -->
+        <div class="brand"><span class="logo" aria-hidden="true">ETA</span>Escola Técnica Adélia</div>
+        <p>Sistema Automatizado de Aproveitamento de Água da Chuva: captação pela calha, sensor de nível, Arduino e bomba alimentados por energia solar.</p>
+      </div>
+      <nav aria-label="Rodapé">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#painel">Painel ao vivo</a></li>
+          <li><a href="#como">Como funciona</a></li>
+          <li><a href="#componentes">Componentes</a></li>
+          <li><a href="#beneficios">Benefícios</a></li>
+          <li><a href="#equipe">Equipe</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h4>Projeto</h4>
+        <ul>
+          <li>Projeto Integrador 2026</li>
+          <li>2º semestre</li>
+          <li>Sustentabilidade · Automação · Energia solar</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Escola Técnica Adélia — Projeto Integrador 2026 – 2º semestre</span>
+      <a href="#inicio">Voltar ao topo ↑</a>
+    </div>
   </div>
 </footer>
 
