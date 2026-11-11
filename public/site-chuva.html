@@ -204,6 +204,7 @@ footer a:hover{color:#fff;text-decoration:underline}
       <li><a href="#equipe">Equipe</a></li>
     </ul>
     <div class="nav-actions">
+      <a href="#painel" class="btn btn-primary nav-cta">Painel ao vivo</a>
       <button class="icon-btn" id="themeBtn" aria-label="Alternar modo claro/escuro">🌙</button>
       <button class="icon-btn" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">☰</button>
     </div>
@@ -221,6 +222,12 @@ footer a:hover{color:#fff;text-decoration:underline}
         <p class="slogan">“Água da chuva hoje, um futuro melhor amanhã!”</p>
         <p class="lead" style="margin-bottom:22px">Uma maquete que capta a chuva, mede o nível com sensor e usa Arduino + energia solar para bombear a água automaticamente até a caixa-d'água.</p>
         <a href="#painel" class="btn btn-primary">▶ Ver o painel ao vivo</a>
+        <div class="stats">
+          <div><b>✔</b> Automação com Arduino</div>
+          <div><b>✔</b> Energia 100% solar</div>
+          <div><b>✔</b> Sensor de nível em tempo real</div>
+          <div><b>✔</b> Baixo custo e replicável</div>
+        </div>
       </div>
       <!-- Troque o placeholder por: <video src="video.mp4" controls poster="capa.jpg"></video> -->
       <div class="video-box" role="img" aria-label="Espaço para o vídeo do projeto">
@@ -464,9 +471,36 @@ void loop() {
 <!-- ================= RODAPÉ ================= -->
 <footer>
   <div class="container">
-    <!-- Troque pelo logo real: <img src="logo-adelia.png" alt="Logo da Escola Técnica Adélia"> -->
-    <div class="brand"><span class="logo" aria-hidden="true">ETA</span>Escola Técnica Adélia</div>
-    <p>Projeto Integrador 2026 – 2º semestre</p>
+    <div class="foot-grid">
+      <div>
+        <!-- Troque pelo logo real: <img src="logo-adelia.png" alt="Logo da Escola Técnica Adélia"> -->
+        <div class="brand"><span class="logo" aria-hidden="true">ETA</span>Escola Técnica Adélia</div>
+        <p>Sistema Automatizado de Aproveitamento de Água da Chuva: captação pela calha, sensor de nível, Arduino e bomba alimentados por energia solar.</p>
+      </div>
+      <nav aria-label="Rodapé">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#painel">Painel ao vivo</a></li>
+          <li><a href="#como">Como funciona</a></li>
+          <li><a href="#componentes">Componentes</a></li>
+          <li><a href="#beneficios">Benefícios</a></li>
+          <li><a href="#equipe">Equipe</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h4>Projeto</h4>
+        <ul>
+          <li>Projeto Integrador 2026</li>
+          <li>2º semestre</li>
+          <li>Sustentabilidade · Automação · Energia solar</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Escola Técnica Adélia — Projeto Integrador 2026 – 2º semestre</span>
+      <a href="#inicio">Voltar ao topo ↑</a>
+    </div>
   </div>
 </footer>
 
