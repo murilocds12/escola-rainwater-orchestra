@@ -149,8 +149,10 @@ ol.steps li{margin-bottom:8px}
 .comp p{font-size:.88rem;color:var(--muted)}
 .comp .link{margin-top:10px;font-size:.8rem;border-top:1px dashed var(--border);padding-top:10px}
 .benefit{text-align:left}
-.member{text-align:center}
-.member img{width:110px;height:110px;border-radius:50%;object-fit:cover;margin:0 auto 12px;border:4px solid var(--surface-2)}
+/* Cards de pessoa: sem foto — usa as iniciais do nome */
+.member{display:flex;align-items:center;gap:14px;text-align:left}
+.member .ini{flex:0 0 52px;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--surface-2);color:var(--agua);font-weight:700;font-size:1.05rem}
+.member h3{font-size:1rem;margin-bottom:2px}
 .member p{color:var(--muted);font-size:.85rem}
 .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}
 @media(min-width:768px){.gallery{grid-template-columns:repeat(4,1fr)}}
@@ -448,12 +450,13 @@ void loop() {
   <div class="container">
     <span class="eyebrow">Pessoas</span>
     <h2>Equipe</h2>
-    <p class="lead">Quem construiu o projeto (troque nomes e fotos no array EQUIPE).</p>
-    <div class="grid g4" id="teamGrid"></div>
-    <div class="card" style="margin-top:18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
-      <img src="https://i.pravatar.cc/120?img=12" alt="Foto do professor orientador" style="width:72px;height:72px;border-radius:50%">
-      <div><span class="tag">Professor orientador</span><h3 style="margin-top:4px">Prof. Nome do Orientador</h3><p style="color:var(--muted);font-size:.88rem">Área de Eletrônica e Automação</p></div>
-    </div>
+    <p class="lead">Quem construiu o projeto.</p>
+    <!-- Para trocar os alunos, edite o array EQUIPE no fim do arquivo -->
+    <div class="grid g3" id="teamGrid"></div>
+    <!-- Para trocar os professores, edite o array PROFESSORES no fim do arquivo -->
+    <h3 style="margin-top:32px">Professores</h3>
+    <p class="lead" style="margin-bottom:18px">Professores de Informática.</p>
+    <div class="grid g3" id="teacherGrid"></div>
     <h3 style="margin-top:32px">Galeria da maquete</h3>
     <div class="gallery" id="gallery"></div>
   </div>
@@ -529,11 +532,17 @@ const BENEFICIOS = [
   ["♻️","Sustentabilidade","Incentiva hábitos responsáveis na escola e em casa."],
   ["🤖","Tecnologia","Automação com Arduino aplicada a um problema real."]
 ];
+// Alunos: [nome, função]
 const EQUIPE = [
-  ["https://i.pravatar.cc/220?img=5","Aluno(a) 1","Programação do Arduino","Técnico em Eletrônica"],
-  ["https://i.pravatar.cc/220?img=8","Aluno(a) 2","Montagem da maquete","Técnico em Edificações"],
-  ["https://i.pravatar.cc/220?img=32","Aluno(a) 3","Energia solar","Técnico em Eletrotécnica"],
-  ["https://i.pravatar.cc/220?img=15","Aluno(a) 4","Site e documentação","Técnico em Informática"]
+  ["Maria Eduarda","Líder do projeto"],
+  ["Murilo Cavalcante","Frontend"],
+  ["Esther Chagas","Backend"]
+];
+// Professores: [nome, área]
+const PROFESSORES = [
+  ["João","Professor de Informática"],
+  ["Leonardo Paiva","Professor de Informática"],
+  ["Roberto","Professor de Informática"]
 ];
 const GALERIA = [
   ["https://picsum.photos/seed/maquete1/1200/900","Vista frontal da maquete"],
@@ -546,7 +555,11 @@ const GALERIA = [
 const $ = id => document.getElementById(id);
 $('compGrid').innerHTML = COMPONENTES.map(([i,t,f,l])=>`<article class="card comp reveal"><div class="ico" aria-hidden="true">${i}</div><h3>${t}</h3><p>${f}</p><p class="link"><strong>Ligação:</strong> ${l}</p></article>`).join('');
 $('benGrid').innerHTML = BENEFICIOS.map(([i,t,d])=>`<article class="card benefit reveal"><div class="ico" aria-hidden="true">${i}</div><h3>${t}</h3><p style="color:var(--muted);font-size:.9rem">${d}</p></article>`).join('');
-$('teamGrid').innerHTML = EQUIPE.map(([f,n,r,c])=>`<article class="card member reveal"><img src="${f}" alt="Foto de ${n}" loading="lazy"><h3>${n}</h3><p>${r}</p><span class="tag">${c}</span></article>`).join('');
+/* Iniciais do nome, usadas no lugar da foto */
+const iniciais = n => n.split(' ').map(p=>p[0]).slice(0,2).join('').toUpperCase();
+const pessoa = ([n,r]) => `<article class="card member reveal"><span class="ini" aria-hidden="true">${iniciais(n)}</span><div><h3>${n}</h3><p>${r}</p></div></article>`;
+$('teamGrid').innerHTML = EQUIPE.map(pessoa).join('');
+$('teacherGrid').innerHTML = PROFESSORES.map(pessoa).join('');
 $('gallery').innerHTML = GALERIA.map(([s,a],k)=>`<button data-k="${k}" aria-label="Ampliar: ${a}"><img src="${s}" alt="${a}" loading="lazy"></button>`).join('');
 
 /* =========================================================
