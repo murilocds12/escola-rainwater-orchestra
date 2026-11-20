@@ -11,4 +11,4 @@
 
 ## Rules
 
-- Site content lives in the single self-contained file `public/site-chuva.html`; its photos and video are real files under `public/assets/` referenced by root-relative paths (`/assets/...`), because the user asked for the media to sit in the public folder rather than on the CDN.
+- Site content lives in the single self-contained file `public/site-chuva.html`; its photos and video are real files under `public/assets/` referenced by relative paths (`assets/...`), because the user asked for the media to sit in the public folder rather than on the CDN and the same file must also work when opened from a local folder.
