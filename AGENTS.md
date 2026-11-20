@@ -11,4 +11,4 @@
 
 ## Rules
 
-- Site content lives in the single self-contained file `public/site-chuva.html`; keep binary media out of it as base64 or repo copies and reference CDN asset pointer URLs instead, because the file must stay openable standalone and lightweight.
+- Site content lives in the single self-contained file `public/site-chuva.html`; its photos and video are real files under `public/assets/` referenced by root-relative paths (`/assets/...`), because the user asked for the media to sit in the public folder rather than on the CDN.
